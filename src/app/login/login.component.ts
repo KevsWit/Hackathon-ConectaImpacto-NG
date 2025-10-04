@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EnvironmentService } from '../../environments/environment.service';
 
 @Component({
   selector: 'app-login',
@@ -14,17 +15,20 @@ export class LoginComponent {
   password: string = '';
   rememberMe: boolean = false;
 
+  constructor(private environmentService: EnvironmentService) {}
+
   onSubmit() {
     if (this.email && this.password) {
       console.log('Login attempt:', {
         email: this.email,
         password: this.password,
-        rememberMe: this.rememberMe
+        rememberMe: this.rememberMe,
+        apiUrl: this.environmentService.apiUrl
       });
       
       // Here you would typically call a service to authenticate the user
-      // For now, we'll just show an alert
-      alert('¡Inicio de sesión exitoso! (Esta es una demostración)');
+      // Example: this.authService.login(this.email, this.password, this.environmentService.apiUrl)
+      alert(`¡Inicio de sesión exitoso! (API: ${this.environmentService.apiUrl})`);
     } else {
       alert('Por favor, completa todos los campos');
     }
