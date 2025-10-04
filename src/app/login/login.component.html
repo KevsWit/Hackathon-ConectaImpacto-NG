@@ -1,0 +1,60 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h1 class="login-title">Iniciar Sesión</h1>
+    </div>
+    
+    <form class="login-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input 
+          type="email" 
+          id="email" 
+          class="form-input" 
+          placeholder="tu@email.com"
+          [(ngModel)]="email"
+          name="email"
+          required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password" class="form-label">Contraseña</label>
+        <input 
+          type="password" 
+          id="password" 
+          class="form-input" 
+          placeholder="••••••••"
+          [(ngModel)]="password"
+          name="password"
+          required>
+      </div>
+      
+      <div class="form-options">
+        <label class="checkbox-container">
+          <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe">
+          <span class="checkmark"></span>
+          Recordarme
+        </label>
+        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+      </div>
+      
+      <button type="submit" class="login-button">
+        <span class="button-text">Iniciar Sesión</span>
+        <div class="button-icon">→</div>
+      </button>
+    </form>
+    
+    <div class="login-footer">
+      <p class="signup-text">
+        ¿No tienes cuenta? 
+        <a href="#" class="signup-link">Regístrate aquí</a>
+      </p>
+    </div>
+  </div>
+  
+  <div class="background-decoration">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+</div>
